@@ -1,0 +1,13 @@
+ <div class="container mt-3 mb-5 d-flex flex-wrap justify-content-between"> 
+    <div class="card mt-3" style="width: 18rem;" *ngFor="let product of products">
+      <img style="width: 200px; padding:1rem; height:auto;" src="{{product.thumbnailUrl}}" class="card-img-top mx-auto d-block" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.productName}}</h5>
+        <h3 class="card-text text-success">Rs. {{product.price - product.discount}}</h3>
+        <a [routerLink]="['/product', product.id]" class="btn btn-danger">View
+  
+        </a>
+      </div>
+    </div>
+  </div>
+

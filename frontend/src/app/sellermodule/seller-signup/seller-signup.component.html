@@ -1,0 +1,22 @@
+<!-- <p>seller-signup works!</p> -->
+<section class="formSection">
+  <form #sellerSigupForm="ngForm" (ngSubmit)="signUp(sellerSigupForm.value)" class="signupForm">
+      <h1 class="text-center">SELLER REGISTRATION</h1>
+      <div class="form-group mt-3">`
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" ngModel aria-describedby="username" placeholder="Enter username">
+      </div>
+      <div class="form-group mt-3">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" ngModel aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="form-group mt-3">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel placeholder="Password">
+      </div>
+      
+      <button type="submit" class="btn btn-primary mt-4">Signup</button>
+      <a routerLink="../sellerlogin" class="btn btn-success mt-4" style="margin-left:1rem;">Login</a>
+      <a routerLink="../sellerdashboard" class="btn btn-primary mt-4" style="margin-left:1rem;">Seller Home</a>
+    </form>
+</section>

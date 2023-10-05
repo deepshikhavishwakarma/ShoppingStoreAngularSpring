@@ -1,0 +1,16 @@
+<div class="offer-image">
+    <img src="https://i.pinimg.com/originals/ca/e7/2c/cae72ce86998abcadd5051acd91a696b.jpg" alt="offer">
+  </div>
+  
+  <div class="container mt-3 mb-5 d-flex flex-wrap justify-content-between">
+    <div class="card mt-3" style="width: 18rem;" *ngFor="let mobile of mobiles">
+      <img style="width: 200px; padding:1rem; height:auto;" src="{{mobile.thumbnailUrl}}" class="card-img-top mx-auto d-block" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{mobile.productName}}</h5>
+        <h3 class="card-text text-success">Rs. {{mobile.price - mobile.discount}}</h3>
+        <!-- <a [routerLink]="['/product', mobile.id]" class="btn btn-danger">View -->
+  
+        <!-- </a> -->
+      </div>
+    </div>
+  </div>

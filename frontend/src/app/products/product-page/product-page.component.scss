@@ -1,0 +1,10 @@
+img{
+    /* border: 2px solid grey; */
+    margin: 0.5rem;
+    transition: 0.5s;
+}
+
+img:hover{
+    scale: 120%;
+    transition: 0.5s;
+}

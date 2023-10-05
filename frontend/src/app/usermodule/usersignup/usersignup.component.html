@@ -1,0 +1,25 @@
+<section class="formSection">
+    <form #userSignUpForm="ngForm" (ngSubmit)="signUp(userSignUpForm.value)" class="signupForm">
+      <h1 class="text-center">USER REGISTRATION</h1>
+      <div class="form-group mt-3">`
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" ngModel aria-describedby="username" placeholder="Enter username" required> 
+      </div>
+      <div class="form-group mt-3">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" ngModel aria-describedby="emailHelp" placeholder="Enter email" required>
+      </div>
+      <div class="form-group mt-3">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel placeholder="Password" required>
+      </div>
+  
+  
+      <button type="submit" class="btn btn-primary mt-4">Signup</button>
+      <a routerLink="../UserLogin" class="btn btn-success mt-4" style="margin-left:1rem;">Login</a>
+  
+  
+    </form>
+  </section>
+  
+  

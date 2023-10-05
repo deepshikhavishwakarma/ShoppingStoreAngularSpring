@@ -1,0 +1,16 @@
+<section class="formSection">
+    <form #userLoginForm="ngForm" (ngSubmit)="loginUser(userLoginForm.value)" class="signupForm">
+      <h1 class="text-center">USER LOGIN</h1>
+      <div class="form-group mt-3">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" ngModel aria-describedby="username" placeholder="Enter username">
+      </div>
+      <div class="form-group mt-3">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary mt-4">Login</button>
+      <a routerLink="../UserSignup" class="btn btn-warning mt-4" style="margin-left:1rem;">Signup</a>
+    </form>
+  </section>
+  

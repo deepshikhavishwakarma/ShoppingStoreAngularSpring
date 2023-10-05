@@ -1,0 +1,49 @@
+<section style="height: 100vh;">
+    <div class="container alert alert-primary d-flex align-items-center justify-content-center mt-3" style="padding: 1rem;">
+      <img src="https://www.pngall.com/wp-content/uploads/5/Profile.png" alt="avatar" style="width: 10rem; height: 10rem; margin-right: 1.5rem;">
+      <div class="d-flex flex-column" style="width: 40%;">
+        <h1>Username : {{data.username}}</h1>
+        <h4>Registered Email : {{data.email}}</h4>
+        <h5 class="alert alert-{{style}}">{{notification}}</h5>
+      </div>
+      <div class="container bg-light" style="border: 2px solid grey; padding: 1rem; border-radius:0.5rem; width:40%">
+        <form #userSignUpForm="ngForm" (ngSubmit)="Update(userSignUpForm.value)" class="signupForm">
+  
+          <div class="form-group mt-3" style="display: none;">
+            <label for="username">Username</label>
+            <input type="text" [(ngModel)]="data.username" class="form-control" id="username" name="username" ngModel aria-describedby="username" placeholder="Enter username">
+          </div>
+          <div class="form-group mt-3">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" ngModel aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group mt-3">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel placeholder="Password">
+          </div>
+  
+          <button type="submit" class="btn btn-primary mt-4">Update Profile</button>
+        </form>
+      </div>
+    </div>
+  
+  
+    <h2 class="text-center">Your Orders</h2>
+    <div class="container mt-3" style="max-height: 60vh; overflow:scroll;">
+      <div class="alert alert-dark d-flex mb-3" *ngFor="let order of orders">
+        <img src="{{order.thumbnailImg}}" alt="thumbnail" style="width: 10rem; height: 10rem; margin-right: 1.5rem;">
+        <div class="container">
+          <h4>{{order.productName}}</h4>
+          <p>Placed On : {{order.orderDate | date}}</p>
+          <p>Quantity : {{order.quantity}}</p>
+          <p>Shipping to : {{order.shippingAddress}}</p>
+          <p>Pin Code : {{order.pinCode}}</p>
+          <p>Price : {{order.totalPrice}}</p>
+          <h5 class="text-success">Status : {{order.status}}</h5>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  

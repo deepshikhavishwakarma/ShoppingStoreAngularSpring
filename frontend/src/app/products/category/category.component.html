@@ -1,0 +1,19 @@
+<div class="container mt-2">
+    <h1>OUR CATALOGUE</h1>
+</div>
+
+<div class="container mt-3 mb-5 d-flex flex-wrap justify-content-between">
+  <div class="card mt-3" style="width: 18rem;" *ngFor="let category of categories">
+    <img src="{{category.categoryThumbnail}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{category.categoryName}}</h5>
+      <!-- <p class="card-text">Best Deals and Exchange Offers.</p> -->
+      <!-- <a routerLink="../{{category.categoryRoute}}" class="btn btn-danger">View {{category.categoryName}} -->
+
+
+      <!-- </a> -->
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,122 @@
+<div *ngIf="isAllowed; else notAllowedTemplate">
+  <div class="alert alert-primary d-flex justify-content-between">
+    <span>WELCOME {{sellerName}} This is your seller destination.</span>
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="container mt-3" *ngIf="isCategoryAdded, else notAddedTemplate">
+    <div class="alert alert-success" role="alert">
+      New Category Was Added. Total Count = {{categoryAdditionCount}}
+    </div>
+  </div>
+  <ng-template #notAddedTemplate>
+    
+  </ng-template>
+
+
+  <div class="container mt-3">
+    <h2>CREATE A CATEGORY</h2>
+    <form #createCategoryForm="ngForm" (ngSubmit)="createCategory(createCategoryForm.value)" class="d-flex justify-content-center">
+      <input type="text" class="form-control" name="categoryName" [(ngModel)]="categoryName" style="width: 50vw; margin-right:1rem" placeholder="Create a New Category if you feel...">
+      <input type="text" class="form-control" name="categoryThumbnail" [(ngModel)]="categoryThumbnail" style="width: 50vw; margin-right:1rem" placeholder="Give a thumbnail for the category...">
+      <input type="text" class="form-control" name="categoryRoute" [(ngModel)]="categoryRoute" style="width: 50vw; margin-right:1rem" placeholder="Give this category a ney route name...">
+      <button type="submit" class="btn btn-success">Create a Category</button>
+    </form>
+  </div>
+  
+<!------------------------------------------------------------------------------------------->
+  
+  <div class="container mt-3" *ngIf="isNewProductAdded, else notAddedTemplate2">
+      <div class="alert alert-success">
+          New Product Was Added. Total Products Added in this session = {{newProductCount}}
+        </div>
+    </div>
+    <ng-template #notAddedTemplate2>
+        <div class="alert alert-danger mt-3">
+            No new Product is added yet.
+        </div>
+    </ng-template>
+    
+<!------------------------------------------------------------------------------------------->
+
+  <div class="container mt-3 mb-5">
+    <form #productForm="ngForm" (ngSubmit)="submitProduct(productForm.value)" class="needs-validation" novalidate>
+      <h2 class="text-center">Add Product</h2>
+
+      <div class="mb-3">
+        <label for="productName" class="form-label">Product Name</label>
+        <input type="text" class="form-control" id="productName" name="productName" [(ngModel)]="productName" required>
+        <div class="invalid-feedback">Thumbnail URL is required.</div>
+      </div>
+      <div class="mb-3">
+        <label for="productDescription" class="form-label">Product Description</label>
+        <input type="text" class="form-control" id="productDescription" name="productDescription" [(ngModel)]="productDescription" required>
+        <div class="invalid-feedback">Thumbnail URL is required.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="thumbnailUrl" class="form-label">Thumbnail URL</label>
+        <input type="text" class="form-control" id="thumbnailUrl" name="thumbnailUrl" [(ngModel)]="thumbnailUrl" required>
+        <div class="invalid-feedback">Thumbnail URL is required.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="imageUrl1" class="form-label">Image URL 1</label>
+        <input type="text" class="form-control" id="imageUrl1" name="imageUrl1" [(ngModel)]="imageUrl1">
+      </div>
+
+      <div class="mb-3">
+        <label for="imageUrl2" class="form-label">Image URL 2</label>
+        <input type="text" class="form-control" id="imageUrl2" name="imageUrl2" [(ngModel)]="imageUrl2">
+      </div>
+
+      <div class="mb-3">
+        <label for="imageUrl3" class="form-label">Image URL 3</label>
+        <input type="text" class="form-control" id="imageUrl3" name="imageUrl3" [(ngModel)]="imageUrl3">
+      </div>
+
+      <div class="mb-3">
+        <label for="sellerId" class="form-label">Seller ID for {{sellerName}}</label>
+        <input type="number" class="form-control" id="sellerId" name="sellerId" [(ngModel)]="sellerId" readonly required>
+        <div class="invalid-feedback">Seller ID is required.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="categoryId" class="form-label">Category ID</label>
+        <select class="form-select" id="categoryId" name="categoryId" [(ngModel)]="categoryId" required>
+          <option value="" disabled selected>Select a Category</option>
+          <option *ngFor="let category of categories" [value]="category.categoryId">
+            {{ category.categoryName }}
+          </option>
+        </select>
+        <div class="invalid-feedback">Category ID is required.</div>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" name="price" [(ngModel)]="price" required>
+        <div class="invalid-feedback">Price is required.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="discount" class="form-label">Discount</label>
+        <input type="number" class="form-control" id="discount" name="discount" [(ngModel)]="discount">
+      </div>
+
+      <div class="mb-3">
+        <label for="stock" class="form-label">Stock</label>
+        <input type="number" class="form-control" id="stock" name="stock" [(ngModel)]="stock">
+      </div>
+
+      <button type="submit" class="btn btn-success">Create Product</button>
+    </form>
+  </div>
+
+</div>
+
+<ng-template #notAllowedTemplate>
+  <div class="alert alert-danger" role="alert">
+    YOU ARE NOT ALLOWED YET :(
+  </div>
+</ng-template>

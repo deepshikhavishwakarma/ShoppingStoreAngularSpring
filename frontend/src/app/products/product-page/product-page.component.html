@@ -1,0 +1,62 @@
+
+<div class="container mt-3 mb-5">
+    <div class="card" style="padding: 1rem;">
+      <div class="container d-flex flex-wrap justify-content-center">
+        <img src="{{product.thumbnailUrl}}" class="card-img-top" style="width: 45%; padding:0.5rem;" alt="Product Image">
+        <img src="{{product.imageUrl1}}" class="card-img-top" style="width: 45%; padding:0.5rem;" alt="Product Image">
+        <img src="{{product.imageUrl2}}" class="card-img-top" style="width: 45%; padding:0.5rem;" alt="Product Image">
+        <img src="{{product.imageUrl3}}" class="card-img-top" style="width: 45%; padding:0.5rem;" alt="Product Image">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ product.productName }}
+        </h5>
+        <p class="card-text">
+          {{ product.productDescription }}
+        </p>
+        <p class="card-text text-danger">Price: Rs. <del>
+            {{ product.price| currency:"Rs. " }}</del> </p>
+        <h1 class="text-success">SALE PRICE : {{product.price - product.discount| currency:"Rs. "}}</h1>
+        <h2 class="card-text text-warning">Discount: Rs
+          {{ product.discount| currency:"Rs. " }}
+        </h2>
+        <!-- <p class="card-text">Stock: {{ product.stock }} </p> -->
+  
+      </div>
+  
+      <div class="alert alert-success">
+        {{status}}
+      </div>
+  
+      <form #cartForm="ngForm" (ngSubmit)="addToCart(cartForm.value)" style="max-width: 20vw; padding: 1rem;">
+        <div class="mb-3" style="display: none;">
+          <label for="thumbnailUrl" class="form-label">Thumbnail URL</label>
+          <input type="text" class="form-control" name="thumbnailUrl" id="thumbnailUrl" [(ngModel)]="thumbnailUrl" readonly>
+        </div>
+        <div class="mb-3" style="display: none;">
+          <label for="productName" class="form-label">Product Name</label>
+          <input type="text" class="form-control" name="productName" id="productName" [(ngModel)]="productName" readonly>
+        </div>
+        <div class="mb-3" style="display: none;">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" class="form-control" name="price" id="price" [(ngModel)]="price" readonly>
+        </div>
+        <div class="mb-3" style="display: none;">
+          <label for="userId" class="form-label">User ID</label>
+          <input type="text" class="form-control" name="userId" id="userId" [(ngModel)]="userId" readonly>
+        </div>
+        <div class="mb-3" style="display: none;">
+          <label for="productId" class="form-label">Product ID</label>
+          <input type="number" class="form-control" name="productId" id="productId" [(ngModel)]="productId" readonly>
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Quantity</label>
+          <input type="number" class="form-control" name="quantity" id="quantity" [(ngModel)]="quantity" min="1" [max]="product.stock" placeholder="1">
+        </div>
+        <button type="submit" class="btn btn-warning">Add to cart.</button>
+      </form>
+  
+    </div>
+  </div>
+  
+  
