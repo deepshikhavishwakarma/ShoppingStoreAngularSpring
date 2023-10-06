@@ -11,6 +11,7 @@ import { UsermoduleModule } from './usermodule/usermodule.module';
 import { HomeComponent } from './home/home.component';
 import { ProductPageComponent } from './products/product-page/product-page.component';
 import { ProductsModule } from './products/products.module';
+import { CategoriesModule } from './categories/categories.module';
 //import { ProductsModule } from './products/products.module';
 
 
@@ -31,7 +32,8 @@ import { ProductsModule } from './products/products.module';
     SellermoduleModule,
     HttpClientModule,
     ProductsModule,
-    UsermoduleModule
+    UsermoduleModule,
+    CategoriesModule,
     
   ],
   providers: [],

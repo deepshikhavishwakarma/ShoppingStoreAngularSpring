@@ -38,7 +38,7 @@ export class AppComponent implements OnInit{
 
   Logout(): void {
     this.userService.clearUser();
-    this.router.navigate(['home']);
+    this.router.navigate(['UserSignup']);
   }
 
 }

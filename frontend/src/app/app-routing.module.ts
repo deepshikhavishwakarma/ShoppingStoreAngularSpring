@@ -12,6 +12,8 @@ import { ProductPageComponent } from './products/product-page/product-page.compo
 import { SellerproductComponent } from './sellermodule/sellerproduct/sellerproduct.component';
 import { ProductComponent } from './products/product/product.component';
 import { CartPageComponent } from './products/cart-page/cart-page.component';
+import { UserdashboardComponent } from './usermodule/userdashboard/userdashboard.component';
+import { MobileComponent } from './categories/mobile/mobile.component';
 
 // const routes: Routes = [];
 const routes: Routes = [
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'product/:id', component: ProductPageComponent },
   { path: 'products', component: ProductComponent },
   { path: 'cartPage', component: CartPageComponent },
+  { path: 'Userdashboard', component: UserdashboardComponent},
+  { path: 'mobiles', component: MobileComponent},
   
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Default route
 ];
